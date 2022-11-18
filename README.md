@@ -19,3 +19,8 @@ Make sure to display the numbers entered and the result in hexadecimal. (The Irv
 is required for this solution program.) 
  
 Do not use procedures in this assignment (Other than the needed Irvine procedures).  
+
+
+*************************
+
+This the code I designed and develped, a simple console program.
