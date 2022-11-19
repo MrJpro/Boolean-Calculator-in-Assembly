@@ -20,7 +20,7 @@ INCLUDE Irvine32.inc
 main PROC
 
 	;TODO: prompt user to enter two values
-	;If the user’s entry is invalid, output an error message
+	;If the userâ€™s entry is invalid, output an error message
 	;repeat the previous process as long as the user will enter an invalid number. 
 	
 	MOV edx,OFFSET prompt
@@ -31,7 +31,10 @@ main PROC
 	CALL readint
 	MOV intNum2,eax
 	CALL Crlf
-
+	
+	;ADD LABEL 
+	;L1:
+	
 	;display option strings
 	MOV edx, OFFSET option1
 	CALL writestring
@@ -67,6 +70,8 @@ main PROC
 			CALL writedec
 			CALL Crlf
 			CALL writehex
+			;jump to first label
+			;jmp L1
 		.ELSEIF intOption == 2
 			MOV edx,OFFSET operName2
 			CALL writestring
@@ -76,6 +81,8 @@ main PROC
 			CALL writedec
 			CALL Crlf
 			CALL writehex
+			;jump to first label
+			;jmp L1
 		.ELSEIF intOption == 3
 			MOV edx,OFFSET operName3
 			CALL writestring
@@ -85,6 +92,8 @@ main PROC
 			CALL writedec
 			CALL Crlf
 			CALL writehex
+			;jump to first label
+			;jmp L1
 		.ELSEIF intOption == 4
 			MOV edx,OFFSET operName4
 			CALL writestring
@@ -95,9 +104,18 @@ main PROC
 			CALL writedec
 			CALL Crlf
 			CALL writehex
+			;jump to first label
+			;jmp L1
 		.ELSEIF intOption == 5
+			jmp L2
 		.ENDIF
+	.ELSE	
+		;jump to first label
+		;jmp L1
 	.ENDIF
+	;EXIT LABEL
+	;L2:
+	
 	;When the user makes a valid entry, display the name of the operation about to be performed. 
 	;The values entered and the result after performing the operation
 
