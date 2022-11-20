@@ -32,10 +32,11 @@ main PROC
 	MOV intNum2,eax
 	CALL Crlf
 	
-	;ADD LABEL 
-	;L1:
+
+L1:
 	
 	;display option strings
+	CALL Crlf
 	MOV edx, OFFSET option1
 	CALL writestring
 	CALL Crlf
@@ -60,7 +61,7 @@ main PROC
 	MOV intOption, eax
 
 	.IF (intOption > 0) && (intOption < 6)
-		;displaying operation performed and result
+		;displayingthe type of operation performed and the result
 		.IF intOption == 1
 			MOV edx,OFFSET operName1
 			CALL writestring
@@ -71,7 +72,7 @@ main PROC
 			CALL Crlf
 			CALL writehex
 			;jump to first label
-			;jmp L1
+			jmp L1
 		.ELSEIF intOption == 2
 			MOV edx,OFFSET operName2
 			CALL writestring
@@ -82,7 +83,7 @@ main PROC
 			CALL Crlf
 			CALL writehex
 			;jump to first label
-			;jmp L1
+			jmp L1
 		.ELSEIF intOption == 3
 			MOV edx,OFFSET operName3
 			CALL writestring
@@ -93,7 +94,7 @@ main PROC
 			CALL Crlf
 			CALL writehex
 			;jump to first label
-			;jmp L1
+			jmp L1
 		.ELSEIF intOption == 4
 			MOV edx,OFFSET operName4
 			CALL writestring
@@ -105,19 +106,16 @@ main PROC
 			CALL Crlf
 			CALL writehex
 			;jump to first label
-			;jmp L1
+			jmp L1
 		.ELSEIF intOption == 5
 			jmp L2
 		.ENDIF
 	.ELSE	
-		;jump to first label
-		;jmp L1
+		;jump to first label when user enter invalid option
+		jmp L1
 	.ENDIF
-	;EXIT LABEL
-	;L2:
+;EXIT LABEL
+L2:
 	
-	;When the user makes a valid entry, display the name of the operation about to be performed. 
-	;The values entered and the result after performing the operation
-
 main ENDP
 END main
